@@ -692,9 +692,11 @@ body{
   }
   
   .form-group {
-    margin: var(--scnd-margin) 0;
+    margin: var(--m-margin) 0;
     position: relative;
     align-items: center;
+    background-color: #f9f9f9;
+    padding: var(--s-padding);
   }
   
   .form-control {
@@ -704,9 +706,9 @@ body{
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #eee;
-    background-color: var(--second-color);
+    color: #fff;
     border: none;
+    margin: var(--s-margin) 0;
     background-clip: padding-box;
     border-radius: var(--s-radius);
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
