@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Message v-for="message in messages" :key="message._id" :messsage="message"></Message>
+    <Message v-for="message in messages" :key="message._id" :message="message"></Message>
   </div>
 </template>
 
