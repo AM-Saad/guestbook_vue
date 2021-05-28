@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Message from "@/components/Message.vue";
+import Message from "@/components/Home/Message.vue";
 import "@/api/messages";
 export default {
   name: "Home",
