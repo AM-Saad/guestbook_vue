@@ -148,6 +148,7 @@ export default {
         return (document.querySelector(".login-error").innerHTML = res.msg);
       }
       localStorage.setItem("uid", res.json._id);
+      return this.$router.push("/");
     },
     toggleForms(visible, hide) {
       this.resetFeedbackMsgs();
