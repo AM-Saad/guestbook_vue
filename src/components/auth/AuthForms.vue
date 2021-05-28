@@ -115,6 +115,7 @@ export default {
   },
   mounted() {
     let authtype = this.$route.params.type;
+    console.log(authtype);
     this.$refs[authtype].classList.add("block");
   },
   created() {},

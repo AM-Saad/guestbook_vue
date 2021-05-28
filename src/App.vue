@@ -2,8 +2,8 @@
   <div id="app" class="wrapper">
     <div id="nav" class="flex">
       <router-link to="/">Home</router-link> | 
-      <router-link to="/auth">Register</router-link> | 
-      <router-link to="/auth">Login</router-link>
+      <router-link to="/auth/signup">Register</router-link> | 
+      <router-link to="/auth/login">Login</router-link>
     </div>
     <router-view />
   </div>
