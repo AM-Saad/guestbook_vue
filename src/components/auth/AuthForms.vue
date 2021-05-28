@@ -129,9 +129,10 @@ export default {
       if (!res.state) {
         return (document.querySelector(".signup-error").innerHTML = res.msg);
       }
-      document.querySelector(".login-success").innerHTML = 'Thank you, please login now'
-      this.$refs.login.classList.add('block')
-      this.$refs.signup.classList.remove('block')
+      document.querySelector(".login-success").innerHTML =
+        "Thank you, please login now";
+      this.$refs.login.classList.add("block");
+      this.$refs.signup.classList.remove("block");
     },
     async login() {
       if (!this.email || !this.password) {
@@ -142,6 +143,11 @@ export default {
       if (!res.state) {
         return (document.querySelector(".login-error").innerHTML = res.msg);
       }
+    },
+  },
+  watch: {
+    "$route.params.type": function (type) {
+        console.log(type);
     },
   },
 };
