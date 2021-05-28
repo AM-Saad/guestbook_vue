@@ -121,6 +121,8 @@ export default {
   created() {},
   methods: {
     async signup() {
+      this.resetFeedbackMsgs();
+
       if (!this.name || !this.email || !this.password) {
         return (document.querySelector(".signup-error").innerHTML =
           "Please add your informations ");
@@ -136,6 +138,7 @@ export default {
       this.toggleForms("login", "signup");
     },
     async login() {
+      this.resetFeedbackMsgs();
       if (!this.email || !this.password) {
         return (document.querySelector(".login-error").innerHTML =
           "Please add your informations ");
@@ -146,6 +149,8 @@ export default {
       }
     },
     toggleForms(visible, hide) {
+      this.resetFeedbackMsgs();
+
       this.$refs[visible].classList.add("block");
       this.$refs[hide].classList.remove("block");
     },
