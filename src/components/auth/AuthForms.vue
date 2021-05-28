@@ -3,7 +3,7 @@
     <form
       method="post"
       action="/form"
-      class="formSignup"
+      class="formSignup none"
       autocomplete="off"
       @submit.prevent="signup()"
     >

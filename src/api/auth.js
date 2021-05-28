@@ -27,7 +27,6 @@ export default class Auth {
             const json = await res.json()
 
             if (res.status == 200 || res.status == 201) {
-
                 return { msg: json.message, json, state: true, code: res.status }
             } else {
                 return { state: false, msg: json.message, code: res.status }
