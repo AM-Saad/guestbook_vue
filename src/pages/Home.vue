@@ -6,7 +6,7 @@
 
 <script>
 import Message from "@/components/Home/Message.vue";
-import "@/api/messages";
+import MessageApi from "@/api/messages";
 export default {
   name: "Home",
   data() {
@@ -15,6 +15,9 @@ export default {
     };
   },
   components: [Message],
+  created(){
+
+  }
 };
 </script>
 
