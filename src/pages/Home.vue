@@ -5,11 +5,15 @@
 </template>
 
 <script>
+import '@/api/messages'
 export default {
   name: "Home",
   data() {
-    return {};
+    return {
+      messages:[]
+    };
   },
+
 };
 </script>
 
