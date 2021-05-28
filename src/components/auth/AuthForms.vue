@@ -149,6 +149,11 @@ export default {
       this.$refs[visible].classList.add("block");
       this.$refs[hide].classList.remove("block");
     },
+    resetFeedbackMsgs() {
+      document.querySelector(".login-success").innerHTML = "";
+      document.querySelector(".login-error").innerHTML = "";
+      document.querySelector(".signup-error").innerHTML = "";
+    },
   },
   watch: {
     "$route.params.type": function (type) {

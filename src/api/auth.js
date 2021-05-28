@@ -1,7 +1,7 @@
 export default class Auth {
     static async signup(name, email, password) {
         try {
-            const res = await fetch('http://192.168.1.3:3000/signup', {
+            const res = await fetch('http://localhost:3000/signup', {
                 method: 'POST',
                 body: JSON.stringify({ name: name, email: email, password: password })
             })
@@ -20,7 +20,7 @@ export default class Auth {
     }
     static async login(email, password) {
         try {
-            const res = await fetch('http://192.168.1.3:3000/login', {
+            const res = await fetch('http://localhost:3000/login', {
                 method: 'POST',
                 body: JSON.stringify({ email: email, password: password })
             })
