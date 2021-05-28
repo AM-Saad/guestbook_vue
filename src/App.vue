@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="wrapper">
     <div id="nav" class="flex">
-      <router-link to="/">Home</router-link> | 
-      <router-link to="/auth/signup">Register</router-link> | 
+      <router-link to="/">Home</router-link> |
+      <router-link to="/auth/signup">Register</router-link> |
       <router-link to="/auth/login">Login</router-link>
     </div>
     <router-view />
@@ -13,6 +13,17 @@
 export default {
   name: "App",
   components: {},
+  created(){
+    this.checkAuthentication()
+  },
+  method:{
+    checkAuthentication(){
+      let uid = localStorage.getItem('uid')
+      if(uid){
+        console.log('auth');
+      }
+    }
+  }
 };
 </script>
 
@@ -24,7 +35,7 @@ export default {
   text-align: center;
   margin-top: 60px;
 }
-.wrapper{
+.wrapper {
   width: 70%;
   margin: auto;
   display: block;
