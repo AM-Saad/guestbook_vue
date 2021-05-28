@@ -9,6 +9,8 @@
     >
       <div class="">
         <h3>Sign up</h3>
+        <p class="signup-error" style="color: red; margin-top: 10px"></p>
+
         <div class="form-group">
           <label for="name-client">Name</label>
           <input
@@ -45,7 +47,6 @@
             autocomplete="false | unknown-autocomplete-value"
           />
         </div>
-        <p class="signup-error" style="color: red; margin-top: 10px"></p>
         <a class="forgotPassword">
           Already have account
           <b>Login</b>
@@ -57,7 +58,7 @@
 </template>
 
 <script>
-import Auth from '@/api/auth' 
+import Auth from "@/api/auth";
 export default {
   name: "AuthForms",
   data() {
@@ -68,12 +69,13 @@ export default {
     };
   },
   methods: {
-    signup() {
+    async signup() {
       if (!this.name || !this.email || !this.password) {
         return (document.querySelector(".signup-error").innerHTML =
           "Please add your informations ");
       }
-      
+      const res = await Auth.signup(this.name, this.email, this.password);
+      console.log(res);
     },
   },
 };
