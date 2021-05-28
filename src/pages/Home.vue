@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Message></Message>
+    <Message v-for="message in messages" :key="message._id"></Message>
   </div>
 </template>
 
@@ -17,7 +17,9 @@ export default {
   components: { Message },
   async created() {
     const res = await MessageApi.messages();
-    console.log(res);
+    if (res) {
+      this.messages = res;
+    }
   },
 };
 </script>
