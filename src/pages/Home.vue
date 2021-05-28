@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    <h1>Guest Book</h1>
     <Message v-for="message in messages" :key="message._id" :message="message"></Message>
   </div>
 </template>
@@ -35,5 +36,8 @@ export default {
   height: 100px;
   font-size: 22px;
   line-height: 100px;
+  text-align: left;
+  border-radius: var(--s-radius);
+  box-shadow: var(--shadow3);
 }
 </style>
