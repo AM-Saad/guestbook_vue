@@ -15,6 +15,11 @@ export default new Router({
             path: '/auth/:type',
             name: 'auth',
             component: () => import( /* webpackChunkName: "auth" */ './pages/Auth.vue')
+        },
+        {
+            path: '/message/:type',
+            name: 'newmessage',
+            component: () => import( /* webpackChunkName: "message" */ './pages/Message.vue')
         }
     ]
 })
