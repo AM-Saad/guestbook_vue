@@ -7,9 +7,9 @@ export default new Router({
     mode:'history',
     routes: [
         {
-            path: '/home',
+            path: '/',
             name: 'home',
-            component: () => { import('./pages/Home.vue') }
+            component: () => import('./pages/Home.vue') 
         }
     ]
 })
