@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="wrapper">
     <div id="nav" class="flex">
       <router-link to="/">Home</router-link> |
       <router-link to="/auth">Register</router-link> |
@@ -23,6 +23,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   margin-top: 60px;
+}
+.wrapper{
+  width: 70%;
+  margin: auto;
+  display: block;
 }
 #nav a {
   font-weight: bold;

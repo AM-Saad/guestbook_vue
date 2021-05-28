@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="messages">
     <h1>Guest Book</h1>
     <Message v-for="message in messages" :key="message._id" :message="message"></Message>
   </div>
@@ -26,11 +26,7 @@ export default {
 </script>
 
 <style>
-.wrapper{
-  width: 70%;
-  margin: auto;
-  display: block;
-}
+
 .message{
   background-color: #fff;
   height: 100px;
