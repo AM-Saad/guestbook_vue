@@ -133,6 +133,7 @@ export default {
         "Thank you, please login now";
       this.$refs.login.classList.add("block");
       this.$refs.signup.classList.remove("block");
+      this.toggleForms('login', 'signup')
     },
     async login() {
       if (!this.email || !this.password) {
