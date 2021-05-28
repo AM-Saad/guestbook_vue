@@ -3,6 +3,10 @@ export default class Auth {
         try {
             const res = await fetch('http://localhost:3000/signup', {
                 method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify({ name: name, email: email, password: password })
             })
             const json = await res.json()
@@ -22,6 +26,10 @@ export default class Auth {
         try {
             const res = await fetch('http://localhost:3000/login', {
                 method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify({ email: email, password: password })
             })
             const json = await res.json()

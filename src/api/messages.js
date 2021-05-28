@@ -1,11 +1,14 @@
+
 export default class Message {
     static async messages() {
         try {
             const res = await fetch('http://localhost:3000/messages', {
                 method: 'get',
-
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
             })
-            console.log(res);
             return await res.json()
         } catch (error) {
             console.log(error);
@@ -16,6 +19,10 @@ export default class Message {
         try {
             const res = await fetch('http://localhost:3000/messages', {
                 method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify({ message: message, user: user })
             })
             const json = await res.json()
@@ -32,10 +39,15 @@ export default class Message {
         }
     }
     static async deleteMessage(message, user) {
+        console.log(user);
         try {
             const res = await fetch(`http://localhost:3000/messages?id=${message}`, {
-                method: 'Delete',
-                body: JSON.stringify({ user: user })
+                method: 'DELETE',
+                body: JSON.stringify({ user: user }),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
             })
             const json = await res.json()
 
