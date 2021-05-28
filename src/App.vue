@@ -1,17 +1,19 @@
 <template>
   <div id="app">
- 
-      <router-view/>
+    <div id="nav" class="flex">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/auth">Register</router-link> |
+      <router-link to="/auth">Login</router-link>
+    </div>
+    <router-view />
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
-  components: {
-  }
-}
+  name: "App",
+  components: {},
+};
 </script>
 
 <style>
@@ -21,5 +23,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   margin-top: 60px;
+}
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
