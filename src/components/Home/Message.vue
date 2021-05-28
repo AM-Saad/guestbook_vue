@@ -1,5 +1,5 @@
 <template>
-  <div class="message">
+  <div class="message p-medium m-medium">
     {{ message.message }}
   </div>
 </template>

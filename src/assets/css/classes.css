@@ -19,7 +19,16 @@
     --shadow: -0.5px 0.5px 3px #9b9b9b, 1px 1px 3px #9b9b9b;
     --main-gradient: linear-gradient(-405deg, #95f7ce 9%, #79b3ff 45%, #7fd8ff 95%)
   }
-  
+  * {
+    padding: 0;
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    box-sizing: border-box;
+    
+  }
+body{
+  background-color: #e2e1ff;
+}
   .close {
     position: absolute;
     z-index: 999999;
