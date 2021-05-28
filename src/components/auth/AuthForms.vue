@@ -58,7 +58,7 @@
     <form
       method="post"
       action="/form"
-      class="formLogin"
+      class="formLogin none"
       autocomplete="off"
       ref="login"
       @submit.prevent="login()"
@@ -113,7 +113,8 @@ export default {
     };
   },
   created() {
- 
+      let authtype = this.$route.params.type
+      this.$refs[authtype].classList.add('block')
   },
   methods: {
     async signup() {
@@ -136,8 +137,6 @@ export default {
         return (document.querySelector(".login-error").innerHTML = res.msg);
       }
     },
-  },
-
   },
 };
 </script>
