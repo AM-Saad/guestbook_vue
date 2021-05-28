@@ -1,19 +1,20 @@
 <template>
   <div>
-      <h1>Hello</h1>
+    <h1>Hello</h1>
   </div>
 </template>
 
 <script>
-import '@/api/messages'
+import Message from "@/components/Message.vue";
+import "@/api/messages";
 export default {
   name: "Home",
   data() {
     return {
-      messages:[]
+      messages: [],
     };
   },
-
+  components: [Message],
 };
 </script>
 
