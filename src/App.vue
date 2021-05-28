@@ -5,7 +5,7 @@
       <router-link to="/auth/signup">Register</router-link> |
       <router-link to="/auth/login">Login</router-link>
     </div>
-    <router-view />
+    <router-view :auth="authenticated" />
   </div>
 </template>
 
@@ -25,9 +25,9 @@ export default {
     checkAuthentication() {
       let uid = localStorage.getItem("uid");
       if (uid) {
-        this.authenticated = true
-      }else{
-        this.authenticated = false
+        this.authenticated = true;
+      } else {
+        this.authenticated = false;
       }
     },
   },
