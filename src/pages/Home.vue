@@ -22,7 +22,6 @@ export default {
   components: { Message },
   async created() {
     this.$emit("checkAuth");
-
     const res = await MessageApi.messages();
     if (res) {
       this.messages = res;
