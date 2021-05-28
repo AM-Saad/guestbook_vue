@@ -39,7 +39,10 @@ export default {
   },
   methods: {
     create() {
- 
+      if (!this.message) {
+        return (document.querySelector(".error").innerHTML =
+          "Please write your message");
+      }
     },
   },
 };
