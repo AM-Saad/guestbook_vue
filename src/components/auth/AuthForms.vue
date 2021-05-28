@@ -75,7 +75,9 @@ export default {
           "Please add your informations ");
       }
       const res = await Auth.signup(this.name, this.email, this.password);
-      console.log(res);
+      if (!res.state) {
+        return (document.querySelector(".signup-error").innerHTML = res.msg);
+      }
     },
   },
 };
