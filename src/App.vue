@@ -10,7 +10,7 @@
         >New Message</router-link
       >
     </div>
-    <router-view :auth="authenticated" />
+    <router-view v-on:checkAuth="checkAuthentication" :auth="authenticated" />
   </div>
 </template>
 
