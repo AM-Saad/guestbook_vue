@@ -133,7 +133,7 @@ export default {
         "Thank you, please login now";
       this.$refs.login.classList.add("block");
       this.$refs.signup.classList.remove("block");
-      this.toggleForms('login', 'signup')
+      this.toggleForms("login", "signup");
     },
     async login() {
       if (!this.email || !this.password) {
@@ -145,14 +145,18 @@ export default {
         return (document.querySelector(".login-error").innerHTML = res.msg);
       }
     },
-    toggleForms(visible, hide){
-        this.$refs[visible].classList.add('block')
-        this.$refs[hide].classList.remove('block')
-    }
+    toggleForms(visible, hide) {
+      this.$refs[visible].classList.add("block");
+      this.$refs[hide].classList.remove("block");
+    },
   },
   watch: {
     "$route.params.type": function (type) {
-        
+      if (type == "signup") {
+        this.toggleForms("signup", "login");
+      } else {
+        this.toggleForms("login", "signup");
+      }
     },
   },
 };
