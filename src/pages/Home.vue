@@ -1,7 +1,11 @@
 <template>
   <div class="messages">
     <h1>Guest Book</h1>
-    <Message v-for="message in messages" :key="message._id" :message="message"></Message>
+    <Message
+      v-for="message in messages"
+      :key="message._id"
+      :message="message"
+    ></Message>
   </div>
 </template>
 
@@ -17,6 +21,8 @@ export default {
   },
   components: { Message },
   async created() {
+    this.$emit("checkAuth");
+
     const res = await MessageApi.messages();
     if (res) {
       this.messages = res;
@@ -26,8 +32,7 @@ export default {
 </script>
 
 <style>
-
-.message{
+.message {
   background-color: #fff;
   height: 100px;
   font-size: 22px;
