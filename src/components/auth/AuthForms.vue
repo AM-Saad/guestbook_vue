@@ -37,7 +37,7 @@
           Already have account
           <b>Login</b>
         </a>
-        <input type="submit" value="Sign up" class="loginBtn" />
+        <input type="submit" value="Sign up" />
       </div>
     </form>
   </div>
