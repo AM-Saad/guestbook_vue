@@ -12,7 +12,7 @@ export default new Router({
             component: () => import( /* webpackChunkName: "home" */ './pages/Home.vue')
         },
         {
-            path: '/auth',
+            path: '/auth/:type',
             name: 'auth',
             component: () => import( /* webpackChunkName: "auth" */ './pages/Auth.vue')
         }
