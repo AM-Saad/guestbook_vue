@@ -5,6 +5,7 @@
       action="/form"
       class="formSignup none"
       autocomplete="off"
+      ref="signup"
       @submit.prevent="signup()"
     >
       <div class="">
@@ -59,6 +60,7 @@
       action="/form"
       class="formLogin"
       autocomplete="off"
+      ref="login"
       @submit.prevent="login()"
     >
       <div class="">
@@ -110,6 +112,9 @@ export default {
       password: "",
     };
   },
+  created() {
+ 
+  },
   methods: {
     async signup() {
       if (!this.name || !this.email || !this.password) {
@@ -131,6 +136,8 @@ export default {
         return (document.querySelector(".login-error").innerHTML = res.msg);
       }
     },
+  },
+
   },
 };
 </script>
