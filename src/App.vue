@@ -1,9 +1,14 @@
 <template>
   <div id="app" class="wrapper">
     <div id="nav" class="flex">
-      <router-link to="/">Home</router-link> 
-      <router-link v-if="!authenticated" to="/auth/signup">Register</router-link> 
+      <router-link to="/">Home</router-link>
+      <router-link v-if="!authenticated" to="/auth/signup"
+        >Register</router-link
+      >
       <router-link v-if="!authenticated" to="/auth/login">Login</router-link>
+      <router-link v-if="authenticated" to="/message/new"
+        >New Message</router-link
+      >
     </div>
     <router-view :auth="authenticated" />
   </div>
