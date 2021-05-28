@@ -47,8 +47,7 @@ export default {
       }
       const user = localStorage.getItem("uid");
       if (!user) {
-        //   Navigate
-        return;
+        return  this.$router.push('/auth/login')
       }
       const res = await Message.newMessage(this.message, user);
       if (!res.state) {
