@@ -14,7 +14,7 @@ export default class Message {
     }
     static async newMessage(message, user) {
         try {
-            const res = await fetch('http://localhost:3000/message', {
+            const res = await fetch('http://localhost:3000/messages', {
                 method: 'POST',
                 body: JSON.stringify({ message: message, user: user })
             })
