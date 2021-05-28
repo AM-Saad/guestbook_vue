@@ -1,5 +1,6 @@
 <template>
   <div class="message">
+      Message here...
   </div>
 </template>
 
