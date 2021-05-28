@@ -45,6 +45,7 @@
 </template>
 
 <script>
+
 export default {
   name: "AuthForms",
   data() {
@@ -60,6 +61,7 @@ export default {
         return (document.querySelector(".signup-error").innerHTML =
           "Please add your informations ");
       }
+      
     },
   },
 };
