@@ -9,6 +9,7 @@
       <div class="">
         <h3>Create New Message</h3>
         <p class="error" style="color: red; margin-top: 10px"></p>
+        <p class="success" style="color: green; margin-top: 10px"></p>
 
         <div class="form-group">
           <label for="message">Message</label>
@@ -53,6 +54,9 @@ export default {
       if (!res.state) {
         return (document.querySelector(".error").innerHTML = res.msg);
       }
+      this.message = "";
+      return (document.querySelector(".success").innerHTML =
+        "Your message created successfully");
     },
   },
 };
