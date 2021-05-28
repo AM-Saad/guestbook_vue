@@ -1,7 +1,7 @@
 export default class Message {
     static async messages() {
         try {
-            const res = await fetch('http://192.168.1.3:3000/messages', {
+            const res = await fetch('http://localhost:3000/messages', {
                 method: 'get',
          
             })

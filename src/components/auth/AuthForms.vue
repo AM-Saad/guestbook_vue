@@ -147,6 +147,7 @@ export default {
       if (!res.state) {
         return (document.querySelector(".login-error").innerHTML = res.msg);
       }
+      localStorage.setItem("uid", res.json._id);
     },
     toggleForms(visible, hide) {
       this.resetFeedbackMsgs();
