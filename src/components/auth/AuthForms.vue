@@ -48,7 +48,7 @@
             autocomplete="false | unknown-autocomplete-value"
           />
         </div>
-        <a class="forgotPassword">
+        <a>
           Already have account
           <b>Login</b>
         </a>
@@ -92,9 +92,9 @@
             autocomplete="false | unknown-autocomplete-value"
           />
         </div>
-        <a class="forgotPassword">
-          Already have account
-          <b>Login</b>
+        <a >
+          You dont have account
+          <b>Sign up</b>
         </a>
         <input type="submit" value="Sign up" class="btn" />
       </div>
