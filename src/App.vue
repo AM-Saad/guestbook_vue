@@ -16,9 +16,10 @@ export default {
   created(){
     this.checkAuthentication()
   },
-  method:{
+  methods:{
     checkAuthentication(){
       let uid = localStorage.getItem('uid')
+      console.log(uid);
       if(uid){
         console.log('auth');
       }
