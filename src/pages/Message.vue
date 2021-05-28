@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import Message from "@/api/messages";
 export default {
   name: "Message",
   data() {
@@ -38,10 +39,19 @@ export default {
     };
   },
   methods: {
-    create() {
+    async create() {
       if (!this.message) {
         return (document.querySelector(".error").innerHTML =
           "Please write your message");
+      }
+      const user = localStorage.getItem("uid");
+      if (!user) {
+        //   Navigate
+        return;
+      }
+      const res = await Message.newMessage(this.message, user);
+      if (!res.state) {
+        return (document.querySelector(".error").innerHTML = res.msg);
       }
     },
   },
