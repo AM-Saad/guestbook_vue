@@ -112,10 +112,12 @@ export default {
       password: "",
     };
   },
-  created() {
-      let authtype = this.$route.params.type
-      this.$refs[authtype].classList.add('block')
+  mounted() {
+    let authtype = this.$route.params.type;
+    console.log(this.$refs);
+    this.$refs[authtype].classList.add("block");
   },
+  created() {},
   methods: {
     async signup() {
       if (!this.name || !this.email || !this.password) {
