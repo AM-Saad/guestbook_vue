@@ -15,9 +15,10 @@ export default {
     };
   },
   components: [Message],
-  created(){
-
-  }
+  async created() {
+    const res = await MessageApi.messages();
+    console.log(res);
+  },
 };
 </script>
 
