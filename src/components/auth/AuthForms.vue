@@ -66,6 +66,7 @@
       <div class="">
         <h3>Login</h3>
         <p class="login-error" style="color: red; margin-top: 10px"></p>
+        <p class="login-success" style="color: green; margin-top: 10px"></p>
 
         <div class="form-group">
           <label for="login-email-client">Email</label>
@@ -114,7 +115,6 @@ export default {
   },
   mounted() {
     let authtype = this.$route.params.type;
-    console.log(this.$refs);
     this.$refs[authtype].classList.add("block");
   },
   created() {},
