@@ -54,6 +54,48 @@
         <input type="submit" value="Sign up" class="btn" />
       </div>
     </form>
+    <form
+      method="post"
+      action="/form"
+      class="formLogin"
+      autocomplete="off"
+      @submit.prevent="login()"
+    >
+      <div class="">
+        <h3>Login</h3>
+        <p class="login-error" style="color: red; margin-top: 10px"></p>
+
+        <div class="form-group">
+          <label for="login-email-client">Email</label>
+          <input
+            type="email"
+            id="login-email-client"
+            name="email"
+            class="form-control"
+            placeholder="Email address"
+            autocomplete="false | unknown-autocomplete-value"
+            v-model="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="login-password-client">Password</label>
+          <input
+            type="password"
+            id="login-password-client"
+            name="password"
+            class="form-control"
+            placeholder="Password"
+            v-model="password"
+            autocomplete="false | unknown-autocomplete-value"
+          />
+        </div>
+        <a class="forgotPassword">
+          Already have account
+          <b>Login</b>
+        </a>
+        <input type="submit" value="Sign up" class="btn" />
+      </div>
+    </form>
   </div>
 </template>
 
@@ -77,6 +119,16 @@ export default {
       const res = await Auth.signup(this.name, this.email, this.password);
       if (!res.state) {
         return (document.querySelector(".signup-error").innerHTML = res.msg);
+      }
+    },
+    async login() {
+      if (!this.email || !this.password) {
+        return (document.querySelector(".login-error").innerHTML =
+          "Please add your informations ");
+      }
+      const res = await Auth.login(this.email, this.password);
+      if (!res.state) {
+        return (document.querySelector(".login-error").innerHTML = res.msg);
       }
     },
   },
