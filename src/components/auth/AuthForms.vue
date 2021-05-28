@@ -144,10 +144,14 @@ export default {
         return (document.querySelector(".login-error").innerHTML = res.msg);
       }
     },
+    toggleForms(visible, hide){
+        this.$refs[visible].classList.add('block')
+        this.$refs[hide].classList.remove('block')
+    }
   },
   watch: {
     "$route.params.type": function (type) {
-        console.log(type);
+        
     },
   },
 };
