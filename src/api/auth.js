@@ -5,10 +5,17 @@ export default class Auth {
                 method: 'POST',
                 body: JSON.stringify({ name: name, email: email, password: password })
             })
-            console.log(res);
-            return await res.json()
+            const json = await res.json()
+
+            if (res.status == 200 || res.status == 201) {
+
+                return { msg: json.message, json, state: true, code: res.status }
+            } else {
+                return { state: false, msg: json.message, code: res.status }
+            }
         } catch (error) {
-            console.log(error);
+            return { state: false, msg: 'Something went wrong, please try again', code: 500 }
+
         }
     }
 }
