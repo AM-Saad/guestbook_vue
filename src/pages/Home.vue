@@ -14,7 +14,7 @@ export default {
       messages: [],
     };
   },
-  components: [Message],
+  components: { Message },
   async created() {
     const res = await MessageApi.messages();
     console.log(res);
