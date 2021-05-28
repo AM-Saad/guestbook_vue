@@ -3,8 +3,9 @@
     <form
       method="post"
       action="/form"
-      class="formSignup "
+      class="formSignup"
       autocomplete="off"
+      @submit.prevent="signup()"
     >
       <div class="">
         <h3>Sign up</h3>
@@ -37,7 +38,7 @@
           Already have account
           <b>Login</b>
         </a>
-        <input type="submit" value="Sign up" />
+        <input type="submit" value="Sign up" class="loginBtn" />
       </div>
     </form>
   </div>
@@ -48,10 +49,18 @@ export default {
   name: "AuthForms",
   data() {
     return {
-        name:'',
-        email:'',
-        password:''
+      name: "",
+      email: "",
+      password: "",
     };
+  },
+  methods: {
+    signup() {
+      if (!this.name || !this.email || !this.password) {
+        return (document.querySelector(".signup-error").innerHTML =
+          "Please add your informations ");
+      }
+    },
   },
 };
 </script>
