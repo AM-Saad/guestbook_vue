@@ -34,15 +34,22 @@ export default {
   name: "Message",
   data() {
     return {
-        message:''
+      message: "",
     };
   },
-  methods:{
-      create(){
-      }
-  }
+  methods: {
+    create() {
+ 
+    },
+  },
 };
 </script>
 
-<style>
+<style scoped>
+form {
+  padding: var(--l-padding);
+  background: #fff;
+  margin: var(--l-margin);
+  text-align: left;
+}
 </style>
