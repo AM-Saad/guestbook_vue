@@ -48,7 +48,7 @@
             autocomplete="false | unknown-autocomplete-value"
           />
         </div>
-        <a>
+        <a @click="toggleForms('login', 'signup')">
           Already have account
           <b>Login</b>
         </a>
@@ -92,11 +92,11 @@
             autocomplete="false | unknown-autocomplete-value"
           />
         </div>
-        <a >
+        <a @click="toggleForms('signup', 'login')">
           You dont have account
           <b>Sign up</b>
         </a>
-        <input type="submit" value="Sign up" class="btn" />
+        <input type="submit" value="Login" class="btn" />
       </div>
     </form>
   </div>
