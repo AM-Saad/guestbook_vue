@@ -12,19 +12,25 @@
 <script>
 export default {
   name: "App",
-  components: {},
-  created(){
-    this.checkAuthentication()
+  data() {
+    return {
+      authenticated: false,
+    };
   },
-  methods:{
-    checkAuthentication(){
-      let uid = localStorage.getItem('uid')
-      console.log(uid);
-      if(uid){
-        console.log('auth');
+  components: {},
+  created() {
+    this.checkAuthentication();
+  },
+  methods: {
+    checkAuthentication() {
+      let uid = localStorage.getItem("uid");
+      if (uid) {
+        this.authenticated = true
+      }else{
+        this.authenticated = false
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
