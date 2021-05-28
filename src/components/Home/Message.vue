@@ -1,6 +1,10 @@
 <template>
-  <div class="message p-medium m-medium">
+  <div class="message p-medium m-medium flex f-space-between">
     {{ message.message }}
+    <div class="flex" v-if="creator">
+      <button class="btn btn-danger">Delete</button>
+      <button class="btn btn-info">Edit</button>
+    </div>
   </div>
 </template>
 
@@ -19,8 +23,14 @@ export default {
       this.creator = true;
     }
   },
+  methods: {
+    
+  },
 };
 </script>
  
-<style>
+<style scoped>
+.btn{
+  width: unset;
+}
 </style>
