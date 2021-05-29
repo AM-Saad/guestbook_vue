@@ -35,7 +35,7 @@
 <script>
 import Message from "@/api/messages";
 export default {
-  name: "Message",
+  name: "Create-Message",
   data() {
     return {
       message: "",

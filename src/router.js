@@ -20,6 +20,11 @@ export default new Router({
             path: '/message/:type',
             name: 'newmessage',
             component: () => import( /* webpackChunkName: "message" */ './pages/Create-Message.vue')
+        },
+        {
+            path: '/message/:id',
+            name: 'message',
+            component: () => import( /* webpackChunkName: "message" */ './pages/Message.vue')
         }
     ]
 })
