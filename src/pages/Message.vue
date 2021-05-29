@@ -84,8 +84,16 @@ export default {
         return (document.querySelector(".error").innerHTML = res.msg);
       }
       this.message = "";
-      return (document.querySelector(".success").innerHTML =
-        "Your message created successfully");
+      if (this.edit) {
+        document.querySelector(".success").innerHTML =
+          "Your message updated successfully";
+        this.user = null;
+        this.msgId = null;
+        return this.$router.push("/");
+      } else {
+        return (document.querySelector(".success").innerHTML =
+          "Your message created successfully");
+      }
     },
   },
   watch: {},
