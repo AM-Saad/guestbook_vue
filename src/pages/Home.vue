@@ -23,6 +23,7 @@ export default {
       errMsg: "",
     };
   },
+  
   components: { Message },
   async created() {
     this.$emit("checkAuth");
