@@ -1,12 +1,24 @@
 <template>
-  <div v-if="fetched">
-    <h1>{{ message.message }}</h1>
-    <div class="replies">
-      <div class="reply" v-for="reply in message.replies" :key="reply._id">
-        {{ reply.message }}
+  <div class="message">
+    <div v-if="fetched">
+      <h1>{{ message.message }}</h1>
+      <div class="replies">
+        <div class="reply" v-for="reply in message.replies" :key="reply._id">
+          {{ reply.message }}
+        </div>
+      </div>
+      <div class="add-reply form-group">
+        <input
+          class="form-control"
+          type="text"
+          v-model="replay"
+          name="replay"
+          id="replay"
+          placeholder="Write your replay"
+        />
+        <button class="btn">Add</button>
       </div>
     </div>
-   
   </div>
 </template>
 
@@ -17,8 +29,8 @@ export default {
   data() {
     return {
       message: null,
-      replay:'',
-      fetched:false
+      replay: "",
+      fetched: false,
     };
   },
   created() {
@@ -34,11 +46,12 @@ export default {
         return this.$router.push("/");
       }
       this.message = res.json;
-      this.fetched = true
+      this.fetched = true;
     },
   },
 };
 </script>
 
 <style scoped>
+
 </style>
