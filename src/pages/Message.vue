@@ -41,6 +41,7 @@ export default {
       message: "",
       edit: false,
       user: null,
+      msgId:null
     };
   },
   created() {
@@ -58,8 +59,9 @@ export default {
       const res = await Message.message(id);
       this.message = res.message;
       this.user = res.user;
+      this.msgId = res._id
     },
-    async create() {
+    async create(id) {
       if (!this.message) {
         return (document.querySelector(".error").innerHTML =
           "Please write your message");
@@ -68,6 +70,7 @@ export default {
       if (!user) {
         return this.$router.push("/auth/login");
       }
+      
       const res = await Message.newMessage(this.message, user);
       if (!res.state) {
         return (document.querySelector(".error").innerHTML = res.msg);
@@ -76,6 +79,7 @@ export default {
       return (document.querySelector(".success").innerHTML =
         "Your message created successfully");
     },
+   
   },
   watch: {},
 };
