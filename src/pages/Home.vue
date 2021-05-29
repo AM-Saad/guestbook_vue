@@ -7,6 +7,7 @@
       :key="message._id"
       :message="message"
       v-on:error="error"
+      v-on:deleteMsg="deleteMsg"
     ></Message>
   </div>
 </template>
@@ -33,6 +34,11 @@ export default {
   methods: {
     error(msg) {
       this.errMsg = msg;
+    },
+    deleteMsg(id) {
+      this.messages = this.messages.filter(
+        (m) => m._id.toString() != id.toString()
+      );
     },
   },
 };

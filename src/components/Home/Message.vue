@@ -35,6 +35,7 @@ export default {
       if (!res.state) {
         this.$emit("error", res.msg);
       }
+      this.$emit("deleteMsg", id);
     },
   },
 };
