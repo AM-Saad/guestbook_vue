@@ -1,11 +1,12 @@
 <template>
-  <div>
+  <div v-if="fetched">
     <h1>{{ message.message }}</h1>
     <div class="replies">
       <div class="reply" v-for="reply in message.replies" :key="reply._id">
         {{ reply.message }}
       </div>
     </div>
+   
   </div>
 </template>
 
@@ -16,6 +17,8 @@ export default {
   data() {
     return {
       message: null,
+      replay:'',
+      fetched:false
     };
   },
   created() {
@@ -27,14 +30,13 @@ export default {
   methods: {
     async getMsg(id) {
       const res = await Message.message(id);
-      console.log(res);
       if (!res.state) {
         return this.$router.push("/");
       }
-      this.message = res;
+      this.message = res.json;
+      this.fetched = true
     },
   },
-  watch: {},
 };
 </script>
 
