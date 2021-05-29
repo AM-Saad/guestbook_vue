@@ -52,6 +52,12 @@ export default {
   margin: auto;
   display: block;
 }
+a{
+  text-decoration: none;
+}
+a:visited{
+  color: #000;
+}
 #nav a {
   font-weight: bold;
   color: #2c3e50;
@@ -60,5 +66,10 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+@media only screen and (max-width: 767px) and (min-width: 320px) {
+  .wrapper{
+    width: 95%;
+  }
 }
 </style>

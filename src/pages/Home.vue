@@ -2,13 +2,15 @@
   <div class="messages">
     <h1>Guest Book</h1>
     <p class="error c-r f-left font-xl m-medium" v-if="errMsg">{{ errMsg }}</p>
-    <Message
-      v-for="message in messages"
-      :key="message._id"
-      :message="message"
-      v-on:error="error"
-      v-on:deleteMsg="deleteMsg"
-    ></Message>
+    <div class="message-wrapper" :class="{ loader: loading }">
+      <Message
+        v-for="message in messages"
+        :key="message._id"
+        :message="message"
+        v-on:error="error"
+        v-on:deleteMsg="deleteMsg"
+      ></Message>
+    </div>
   </div>
 </template>
 
@@ -21,15 +23,16 @@ export default {
     return {
       messages: [],
       errMsg: "",
+      loading: true,
     };
   },
-  
   components: { Message },
   async created() {
     this.$emit("checkAuth");
     const res = await MessageApi.messages();
     if (res) {
       this.messages = res;
+      this.loading = false
     }
   },
   methods: {
@@ -54,5 +57,8 @@ export default {
   text-align: left;
   border-radius: var(--s-radius);
   box-shadow: var(--shadow3);
+}
+.message-wrapper{
+  min-height: 40vh;
 }
 </style>
