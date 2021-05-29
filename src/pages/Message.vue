@@ -48,10 +48,21 @@ export default {
       this.message = res.json;
       this.fetched = true;
     },
+
+
   },
 };
 </script>
 
 <style scoped>
-
+.message {
+  background: #fff;
+  padding: var(--m-padding);
+  box-shadow: var(--shadow3);
+  margin: var(--m-margin) 0;
+}
+.message h1 {
+  text-align: left;
+  margin: var(--m-margin) 0;
+}
 </style>
