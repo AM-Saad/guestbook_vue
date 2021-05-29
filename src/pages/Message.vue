@@ -7,7 +7,8 @@
       @submit.prevent="create()"
     >
       <div class="">
-        <h3>Create New Message</h3>
+        <h3 v-if="!edit">Create New Message</h3>
+        <h3 v-if="edit">Edit Message</h3>
         <p class="error" style="color: red; margin-top: 10px"></p>
         <p class="success" style="color: green; margin-top: 10px"></p>
 
@@ -24,7 +25,8 @@
           />
         </div>
 
-        <input type="submit" value="Create" class="btn" />
+        <input type="submit" v-if="edit" value="Edit" class="btn" />
+        <input type="submit" v-if="!edit" value="Create" class="btn" />
       </div>
     </form>
   </div>
@@ -44,11 +46,17 @@ export default {
     const type = this.$route.params.type;
     if (type == "edit") {
       const id = this.$route.query.id;
-      console.log(id);
-
+      this.edit = true
+      if (id) {
+        this.getMsg(id);
+      }
     }
   },
   methods: {
+    async getMsg(id) {
+      const res = await Message.message(id);
+      this.message = res.message
+    },
     async create() {
       if (!this.message) {
         return (document.querySelector(".error").innerHTML =
