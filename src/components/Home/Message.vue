@@ -8,7 +8,7 @@
       >
         Delete
       </button>
-      <router-link to="/message/edit" class="btn btn-info"
+      <router-link :to="{ path: '/message/edit', query: { id: message._id }}" class="btn btn-info"
         >Edit</router-link
       >
     </div>

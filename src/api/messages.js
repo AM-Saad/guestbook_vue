@@ -15,6 +15,21 @@ export default class Message {
         }
 
     }
+    static async message(id) {
+        try {
+            const res = await fetch(`http://localhost:3000/message?id=${id}`, {
+                method: 'get',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+            return await res.json()
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
     static async newMessage(message, user) {
         try {
             const res = await fetch('http://localhost:3000/messages', {

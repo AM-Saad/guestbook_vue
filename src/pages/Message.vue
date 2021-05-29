@@ -41,7 +41,12 @@ export default {
     };
   },
   created() {
-    
+    const type = this.$route.params.type;
+    if (type == "edit") {
+      const id = this.$route.query.id;
+      console.log(id);
+
+    }
   },
   methods: {
     async create() {
