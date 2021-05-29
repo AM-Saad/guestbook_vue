@@ -37,7 +37,11 @@ export default {
   data() {
     return {
       message: "",
+      edit: false,
     };
+  },
+  created() {
+
   },
   methods: {
     async create() {
@@ -47,7 +51,7 @@ export default {
       }
       const user = localStorage.getItem("uid");
       if (!user) {
-        return  this.$router.push('/auth/login')
+        return this.$router.push("/auth/login");
       }
       const res = await Message.newMessage(this.message, user);
       if (!res.state) {
@@ -58,6 +62,7 @@ export default {
         "Your message created successfully");
     },
   },
+  watch: {},
 };
 </script>
 
