@@ -5,14 +5,17 @@
       <div class="replies">
         <h4>Message Replies</h4>
         <div class="reply" v-for="reply in replies" :key="reply._id">
-          {{ reply.message }}
+          <div class="grid">
+            <p class="font-s m-b-3">{{ reply.user }}</p>
+            <p class="m-medium">{{ reply.message }}</p>
+          </div>
         </div>
       </div>
       <div class="add-reply form-group">
         <input
           class="form-control"
           type="text"
-          v-model="replay"
+          v-model="reply"
           name="replay"
           id="replay"
           placeholder="Write your replay"
@@ -30,7 +33,7 @@ export default {
   data() {
     return {
       message: null,
-      replay: "",
+      reply: "",
       replies: [],
       fetched: false,
     };
@@ -56,10 +59,11 @@ export default {
       if (!user) {
         return this.$router.push("/auth/login");
       }
-      if (!this.replay) return;
+      if (!this.reply) return;
 
-      const res = await Message.addReply(id, this.replay, user);
-      this.replies.push(res.replay);
+      const res = await Message.addReply(id, this.reply, user);
+      this.replies.push(res.json.reply);
+      this.reply = ''
     },
   },
 };
@@ -76,16 +80,15 @@ export default {
   text-align: left;
   margin: var(--m-margin) 0;
 }
-.replies{
+.replies {
   background-color: #eee;
   padding: var(--m-padding);
-
 }
-h4{
+h4 {
   text-align: left;
   color: #333;
 }
-.reply{
+.reply {
   padding: var(--s-padding);
   margin: var(--m-margin);
   background-color: #f9f9f9;
