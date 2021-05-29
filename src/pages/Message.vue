@@ -1,5 +1,5 @@
 <template>
-  <div class="message">
+  <div class="message message-wrapper" :class="{ loader: loading }">
     <div v-if="fetched">
       <h1>{{ message.message }}</h1>
       <div class="replies">
@@ -36,6 +36,7 @@ export default {
       reply: "",
       replies: [],
       fetched: false,
+      loading: true,
     };
   },
   created() {
@@ -53,6 +54,7 @@ export default {
       this.message = res.json;
       this.replies = res.json.replies;
       this.fetched = true;
+      this.loading = false;
     },
     async addReply(id) {
       const user = localStorage.getItem("uid");
@@ -60,16 +62,21 @@ export default {
         return this.$router.push("/auth/login");
       }
       if (!this.reply) return;
-
+      this.loading = true;
       const res = await Message.addReply(id, this.reply, user);
       this.replies.push(res.json.reply);
-      this.reply = ''
+      this.reply = "";
+      this.loading = false;
+
     },
   },
 };
 </script>
 
 <style scoped>
+.message-wrapper {
+  min-height: 40vh;
+}
 .message {
   background: #fff;
   padding: var(--m-padding);
