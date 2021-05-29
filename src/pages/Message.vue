@@ -3,7 +3,8 @@
     <div v-if="fetched">
       <h1>{{ message.message }}</h1>
       <div class="replies">
-        <div class="reply" v-for="reply in message.replies" :key="reply._id">
+        <h4>Message Replies</h4>
+        <div class="reply" v-for="reply in replies" :key="reply._id">
           {{ reply.message }}
         </div>
       </div>
@@ -30,6 +31,7 @@ export default {
     return {
       message: null,
       replay: "",
+      replies: [],
       fetched: false,
     };
   },
@@ -46,6 +48,7 @@ export default {
         return this.$router.push("/");
       }
       this.message = res.json;
+      this.replies = res.json.replies;
       this.fetched = true;
     },
     async addReply(id) {
@@ -56,7 +59,7 @@ export default {
       if (!this.replay) return;
 
       const res = await Message.addReply(id, this.replay, user);
-      console.log(res);
+      this.replies.push(res.replay);
     },
   },
 };
@@ -72,5 +75,20 @@ export default {
 .message h1 {
   text-align: left;
   margin: var(--m-margin) 0;
+}
+.replies{
+  background-color: #eee;
+  padding: var(--m-padding);
+
+}
+h4{
+  text-align: left;
+  color: #333;
+}
+.reply{
+  padding: var(--s-padding);
+  margin: var(--m-margin);
+  background-color: #f9f9f9;
+  text-align: left;
 }
 </style>
