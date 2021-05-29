@@ -38,19 +38,17 @@ export default class Message {
 
         }
     }
-    static async deleteMessage(message, user) {
+    static async deleteMessage(id, user) {
         console.log(user);
         try {
-            const res = await fetch(`http://localhost:3000/messages?id=${message}`, {
+            const res = await fetch(`http://localhost:3000/messages?id=${id}&&user=${user}`, {
                 method: 'DELETE',
-                body: JSON.stringify({ user: user }),
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
             })
             const json = await res.json()
-
             if (res.status == 200 || res.status == 201) {
 
                 return { msg: json.message, json, state: true, code: res.status }
