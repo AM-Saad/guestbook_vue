@@ -75,4 +75,28 @@ export default class Message {
 
         }
     }
+
+    static async updateMessage(id, message, user) {
+        try {
+            const res = await fetch(`http://localhost:3000/messages?id=${id}`, {
+                method: 'Put',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: message, user: user })
+            })
+            const json = await res.json()
+
+            if (res.status == 200 || res.status == 201) {
+
+                return { msg: json.message, json, state: true, code: res.status }
+            } else {
+                return { state: false, msg: json.message, code: res.status }
+            }
+        } catch (error) {
+            return { state: false, msg: 'Something went wrong, please try again', code: 500 }
+
+        }
+    }
 }
