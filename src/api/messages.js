@@ -24,6 +24,8 @@ export default class Message {
                     'Content-Type': 'application/json'
                 }
             })
+            const json = await res.json()
+
             if (res.status == 200 || res.status == 201) {
 
                 return { msg: json.message, json, state: true, code: res.status }
