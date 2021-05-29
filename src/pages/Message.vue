@@ -41,7 +41,7 @@ export default {
       message: "",
       edit: false,
       user: null,
-      msgId:null
+      msgId: null,
     };
   },
   created() {
@@ -59,9 +59,9 @@ export default {
       const res = await Message.message(id);
       this.message = res.message;
       this.user = res.user;
-      this.msgId = res._id
+      this.msgId = res._id;
     },
-    async create(id) {
+    async create() {
       if (!this.message) {
         return (document.querySelector(".error").innerHTML =
           "Please write your message");
@@ -70,8 +70,12 @@ export default {
       if (!user) {
         return this.$router.push("/auth/login");
       }
-      
-      const res = await Message.newMessage(this.message, user);
+      let res;
+      if (this.edit) {
+        res = await Message.updateMessage(this.msgId, this.message, this.user);
+      } else {
+        res = await Message.newMessage(this.message, user);
+      }
       if (!res.state) {
         return (document.querySelector(".error").innerHTML = res.msg);
       }
@@ -79,7 +83,6 @@ export default {
       return (document.querySelector(".success").innerHTML =
         "Your message created successfully");
     },
-   
   },
   watch: {},
 };
