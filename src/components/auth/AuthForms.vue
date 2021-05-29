@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="{ loader: loading }">
     <form
       method="post"
       action="/form"
@@ -111,6 +111,7 @@ export default {
       name: "",
       email: "",
       password: "",
+      loading: false,
     };
   },
   mounted() {
@@ -127,10 +128,14 @@ export default {
         return (document.querySelector(".signup-error").innerHTML =
           "Please add your informations ");
       }
+      this.loading = true;
       const res = await Auth.signup(this.name, this.email, this.password);
       if (!res.state) {
+        this.loading = false;
         return (document.querySelector(".signup-error").innerHTML = res.msg);
       }
+      this.loading = false;
+
       document.querySelector(".login-success").innerHTML =
         "Thank you, please login now";
       this.$refs.login.classList.add("block");
@@ -143,8 +148,11 @@ export default {
         return (document.querySelector(".login-error").innerHTML =
           "Please add your informations ");
       }
+      this.loading = true;
       const res = await Auth.login(this.email, this.password);
+
       if (!res.state) {
+        this.loading = false;
         return (document.querySelector(".login-error").innerHTML = res.msg);
       }
       localStorage.setItem("uid", res.json._id);
