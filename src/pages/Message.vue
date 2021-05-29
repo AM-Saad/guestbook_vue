@@ -40,13 +40,14 @@ export default {
     return {
       message: "",
       edit: false,
+      user: null,
     };
   },
   created() {
     const type = this.$route.params.type;
     if (type == "edit") {
       const id = this.$route.query.id;
-      this.edit = true
+      this.edit = true;
       if (id) {
         this.getMsg(id);
       }
@@ -55,7 +56,8 @@ export default {
   methods: {
     async getMsg(id) {
       const res = await Message.message(id);
-      this.message = res.message
+      this.message = res.message;
+      this.user = res.user;
     },
     async create() {
       if (!this.message) {
