@@ -8,7 +8,9 @@
       >
         Delete
       </button>
-      <button class="btn btn-info">Edit</button>
+      <router-link to="/message/new" :message="message" class="btn btn-info"
+        >Edit</router-link
+      >
     </div>
   </div>
 </template>
