@@ -33,9 +33,8 @@ export default {
     async deleteMsg(id, user) {
       const res = await Message.deleteMessage(id, user);
       if (!res.state) {
-        return
+        this.$emit("error", res.msg);
       }
-
     },
   },
 };

@@ -1,10 +1,12 @@
 <template>
   <div class="messages">
     <h1>Guest Book</h1>
+    <p class="error c-r f-left font-xl m-medium" v-if="errMsg">{{ errMsg }}</p>
     <Message
       v-for="message in messages"
       :key="message._id"
       :message="message"
+      v-on:error="error"
     ></Message>
   </div>
 </template>
@@ -17,6 +19,7 @@ export default {
   data() {
     return {
       messages: [],
+      errMsg: "",
     };
   },
   components: { Message },
@@ -26,6 +29,11 @@ export default {
     if (res) {
       this.messages = res;
     }
+  },
+  methods: {
+    error(msg) {
+      this.errMsg = msg;
+    },
   },
 };
 </script>
