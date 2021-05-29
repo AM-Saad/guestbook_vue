@@ -16,7 +16,7 @@
           id="replay"
           placeholder="Write your replay"
         />
-        <button class="btn">Add</button>
+        <button class="btn" @click="addReply(message._id)">Add</button>
       </div>
     </div>
   </div>
@@ -48,8 +48,16 @@ export default {
       this.message = res.json;
       this.fetched = true;
     },
+    async addReply(id) {
+      const user = localStorage.getItem("uid");
+      if (!user) {
+        return this.$router.push("/auth/login");
+      }
+      if (!this.replay) return;
 
-
+      const res = await Message.addReply(id, this.replay, user);
+      console.log(res);
+    },
   },
 };
 </script>

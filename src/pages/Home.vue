@@ -44,7 +44,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .message {
   background-color: #fff;
   height: 100px;
