@@ -41,7 +41,7 @@ export default {
     };
   },
   created() {
-
+    
   },
   methods: {
     async create() {
