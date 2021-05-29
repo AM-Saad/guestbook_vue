@@ -72,6 +72,10 @@ export default {
       }
       let res;
       if (this.edit) {
+        if (user != this.user) {
+          return (document.querySelector(".error").innerHTML =
+            "You're not allowed to preform this action");
+        }
         res = await Message.updateMessage(this.msgId, this.message, this.user);
       } else {
         res = await Message.newMessage(this.message, user);
