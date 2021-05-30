@@ -1,4 +1,4 @@
-# Guestbook API
+# Guestbook SPA
 
 Guestbook is an Front-end app for guestbooks that let users create account to add/edit/delete message as well as replying to messages
 
