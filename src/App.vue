@@ -9,6 +9,7 @@
       <router-link v-if="authenticated" to="/message/new"
         >New Message</router-link
       >
+      <a v-if="authenticated" @click="logout()">Logout</a>
     </div>
     <router-view v-on:checkAuth="checkAuthentication" :auth="authenticated" />
   </div>
@@ -35,6 +36,10 @@ export default {
         this.authenticated = false;
       }
     },
+  logout() {
+    localStorage.removeItem("uid");
+    this.checkAuthentication();
+  },
   },
 };
 </script>
@@ -52,10 +57,10 @@ export default {
   margin: auto;
   display: block;
 }
-a{
+a {
   text-decoration: none;
 }
-a:visited{
+a:visited {
   color: #000;
 }
 #nav a {
@@ -68,7 +73,7 @@ a:visited{
   color: #42b983;
 }
 @media only screen and (max-width: 767px) and (min-width: 320px) {
-  .wrapper{
+  .wrapper {
     width: 95%;
   }
 }
