@@ -7,7 +7,7 @@
     <div class="flex" v-if="creator">
       <button
         class="btn btn-danger"
-        @click="deleteMsg(message._id, message.user)"
+        @click="deleteMsg(message._id, message.user, $event)"
       >
         Delete
       </button>
@@ -37,7 +37,8 @@ export default {
     }
   },
   methods: {
-    async deleteMsg(id, user) {
+    async deleteMsg(id, user, event) {
+      event.preventDefault();
       const res = await Message.deleteMessage(id, user);
       if (!res.state) {
         this.$emit("error", res.msg);
