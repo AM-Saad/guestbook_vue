@@ -11,6 +11,7 @@
         v-on:deleteMsg="deleteMsg"
       ></Message>
     </div>
+    <p v-if="messages.length == 0">No messages yet..</p>
   </div>
 </template>
 
@@ -32,7 +33,7 @@ export default {
     const res = await MessageApi.messages();
     if (res) {
       this.messages = res;
-      this.loading = false
+      this.loading = false;
     }
   },
   methods: {
@@ -58,7 +59,7 @@ export default {
   border-radius: var(--s-radius);
   box-shadow: var(--shadow3);
 }
-.message-wrapper{
+.message-wrapper {
   min-height: 40vh;
 }
 </style>

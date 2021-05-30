@@ -57,9 +57,9 @@ export default {
   methods: {
     async getMsg(id) {
       const res = await Message.message(id);
-      this.message = res.message;
-      this.user = res.user;
-      this.msgId = res._id;
+      this.message = res.json.message;
+      this.user = res.json.user;
+      this.msgId = res.json._id;
     },
     async create() {
       if (!this.message) {
