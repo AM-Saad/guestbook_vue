@@ -85,14 +85,9 @@ export default {
       }
       this.message = "";
       if (this.edit) {
-        document.querySelector(".success").innerHTML =
-          "Your message updated successfully";
         this.user = null;
         this.msgId = null;
-      } else {
-        return (document.querySelector(".success").innerHTML =
-          "Your message created successfully");
-      }
+      } 
       return this.$router.push("/");
     },
   },
